@@ -1,0 +1,4 @@
+# internship day 7 (16/5/2020):
+To day we have took the help of other team to find out errors in our V-rep code but we got to know about the function sysCall_jointCallback() from which we can controle joints torque more efficiently and we have tried using this on our model and one more error we have found was we didn't enabled PID dynamics of motor. We have solved these errors and we got successful to balance pendulum on pivot and also line contact by reaction wheel. 
+
+Then we have also corrected some parameters of our pendulum and finalized pivot inverted pendulum design though the line contact pendulum and cycle bot pendulum is remaining design.
