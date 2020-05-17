@@ -1,0 +1,35 @@
+Project#17 team b Aniket Nayak (12-05-2020)
+
+today, as per our mentor we have to first design and model simple inverted pendulum with reaction wheel,
+and learn from this project. 
+
+So,i designed simple inverted pendulum with reaction wheel and studied about various parameters which
+should effect its behaviour ( source:- reaserch paper will be shared in the resource section )
+
+youtube:- https://www.youtube.com/watch?v=OB3ufWYpj-I
+
+reaserch paper reffered:-https://ieeexplore.ieee.org/document/8646093
+
+Recovery angle - which is the maximum angle from which the pendulum can become upright
+
+Points concluded:-
+
+1. if we increase the length of the pendulum arm recovery angle decreases
+2. System can produce more acceleration for same torque if we decrease intertia(directly in relation with length
+   of pendulum arm)
+3. if we decrease the mass of the reaction wheel recovery angle increases.
+4. + the plus point with the increase in mass of the rection wheel is that 
+  ---- it increases inertia ,which increase time the motor imparts torque on arm, increases the recovery angle.
+  --------inc in inertia leads to less angular acceleration for the same torque therefore, time constt for the 
+           motor to reach saturation is greater.
+5. By increases the radius we can counter point(3) because mass is proportional to intertia but also it is proportional
+   to the square of radius, dec in mass, which increases recovery angle.
+
+later, We discussed and distribute work.  now, we have work on programming part. 
+So, i start learning how to start programming in lua ( i taken help from team A member chinmay palaye)
+now, hruthwik and working on this part.
+
+Learned how to change codes in non-threaded child script
+
+youtube :- https://www.youtube.com/watch?v=cOk5DuJj-3M&list=PLjzuoBhdtaXOoqkJUqhYQletLLnJP8vjZ&index=14
+           (14 to 17)
