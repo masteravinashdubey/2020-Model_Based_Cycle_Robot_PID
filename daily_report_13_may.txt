@@ -1,0 +1,12 @@
+#Internship day4(13/05/2020)-Hruthwik K
+
+Now we have the model of the inverted pendulum,so it's time for code and simulation.
+
+So I learnt how can we control the simulation in v-rep through Python.
+I learnt how can we add objects to the scene through python.
+
+I tried getting the angle of the dummy using python but i faced many problems there.
+
+The main problem is there are very less resources for learning v-rep completely.
+
+Due to heavy rain I could not attend the mentoring session.

@@ -1,0 +1,4 @@
+#Internship day7(16/05/2020)-Hruthwik K
+
+Today we took help from the other team about the problem we are facing and we got to know that there is a function called sysCall_jointCallback()  from we which we can control joint torque.so we used this in our model.Also we came to know that pid works only if control loop is enabled in dynamics of the motor.
+So now we implemented inverted pendulum successfully.

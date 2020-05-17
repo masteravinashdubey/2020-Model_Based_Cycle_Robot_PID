@@ -1,0 +1,7 @@
+#Internship day3(12/05/2020)-Hruthwik K
+
+Today I have read some research papers that were shared in the group
+
+I came to know that physical parameters like weight will affect the simulation also.
+
+I learnt how joint works in v-rep.

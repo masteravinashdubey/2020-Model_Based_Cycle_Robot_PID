@@ -1,0 +1,12 @@
+#Internship day6(15/05/2020)-Hruthwik K
+
+Today our mentor asked us to attend the meeting at 5:30
+where we should show the model inverted pendulum with pivot and without pivot also,but we had some problems in implementing that so we asked some doubts.
+
+Minutes of meeting
+Agenda:
+My team was assigned to show two working and well tuned models of inverted pendulum(with pivot and without pivot).But we were unable to tune them ,so we told the mentor the problems we are facing.He commented that we are on the right track but we are missing something.He asked as to get help from other team
+
+Action Plans till next meeting
+
+We have to tune the model and should also complete the cycle bot.

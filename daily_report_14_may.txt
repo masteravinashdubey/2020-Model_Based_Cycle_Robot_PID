@@ -1,0 +1,6 @@
+#Internship day4(14/05/2020)-Hruthwik K
+
+Today I tried to tune the inverted pendulum,but the problem is it is balancing at around 0.5 radian.
+
+And I learnt more about lua coding like getting angles from the joint,adding force and torque to the joint etc
+
