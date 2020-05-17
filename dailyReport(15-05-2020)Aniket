@@ -1,0 +1,32 @@
+Project #17 Aniket Nayak friday(15-05-2020)
+
+Our design is not working ideally there is a error which we just cannot get rid of it. 
+And tried our level best to figuring it out . but the error continuosly comes.
+
+Now, I design another physical models for verfying that it occurs in this designing or 
+other comes in other design also. But it comes in almost every design.
+the error is, the oscillates at a gap of 0.3 radian angle from desired one .
+
+then, we have mentoring Session:-
+
+Agenda:- What is the problems regarding the simulation and our next that we to prepare
+         for.
+
+we shows our design along with the code to our mentor, they ask us to change gains and
+physical parameters but still the error continues. we all just stuck on one which is not
+working.
+
+then, our mentors tells our next task and the deadlines and what we have to do in the next 
+week, we go through the curriculum of the next week and prepare one example for each 
+topic.
+
+Now, our mentor told us to collaborate with other team. so that, we can find the solution 
+for the problem .
+
+The other team's member jai garg help me in finding the solution of the error and the 
+solution is written all the code(script) in under the wrongh part. we have to write it
+under the part which we have to control.
+
+Another problem is that, For joint control there is a function which we have to call
+and the under it, not the under the actuation function. And this solves our problem.
+And now our model is working well.
