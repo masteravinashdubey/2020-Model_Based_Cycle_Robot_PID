@@ -1,0 +1,27 @@
+Project #17 team-b Aniket Nayak thursday(14-05-2020)
+
+Yesterday, I was facing problem how to get data of joint orientation, so that i could 
+control the signal.
+
+today, i figured it out that v-rep has a function for that and using this we can get the
+angle of the joint. But it is valid only for joints.
+
+Then, I developed PID controller to control the velocity of the rection wheel and its start
+working. Then after, i have tune the kp,ki and kd gains by observing the behaviour of the
+pendulum. then i tuned it at its best. But now i am facing problem is that the pendulum 
+is oscilating at an angle of 0.5 to 0.7 not at desired angle which is 0.
+ I changed various kp, ki and kd. But it doesn't effect this.
+
+Then, I tried to control it by torque as  the output of the Pid not velocity, but it doesn't
+work properly.
+
+Then, Prit varmora suggested to change the parameters like inertia , mass and the length,
+breadth, height of various things and it works but not works ideally. And he gives all these 
+values.
+
+then, I designed v shaped inverted pendulum at bottom without bottom joint in vrep.File is 
+shared in the group of daily_report. And also get the data of the angle of orientation of 
+the pendulum which is different from the other case because the function is work for only
+joint function. This time there will be no joint. So, i get it by using dummy as a 
+reference coordinate to the pendulum arm's coordinate and i get the angle from that. 
+ 
