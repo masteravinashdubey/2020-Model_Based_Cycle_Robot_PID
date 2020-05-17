@@ -1,0 +1,47 @@
+#project_17 daily report( 10 & 11-05-2020)
+
+At starting, i gone through alot of reaserch papers to found relevant data, 
+then, i found some relevant reserch papers that i shared in the group
+earlier.
+
+then, i learned how the cycle bot works with the use of reaction wheel and the working 
+principle behind is same as inverted pendulum i.e  The angular momentum is conserved as
+long as there is no external torque applies to the system. The reaction wheel balances
+the system using reaction rotations.
+
+for one-axis we need only one rection wheel as it create reactional rotations in one 
+side(clockwise or anti-c). we set the desired angle to 0, through IMU we get the data
+of angle and angular velocity so, through PID controller it can generate approriate 
+reactional torque with use of rection wheel.
+
+To find the equations of motion, i reffered reaserch papers through i come to know 
+how find it through Lagrange equation also the relation between torque & voltage for 
+reaction wheel . a
+And through these we can find state space matrixes.
+
+I reffered you tube to scilab tutorials for how we get state space matrix through 
+transfer function the link is given below:-
+https://www.youtube.com/watch?v=zcIFm7IbEmY&list=PL5Q4xJ4bbfxXnC_SFgpcHlRjWh2Rj9opj&index=6
+
+then, i try to model spring mass damper system in Xcos scilab:-
+https://www.youtube.com/watch?v=QOxdlnyCUZM&list=PL5Q4xJ4bbfxXnC_SFgpcHlRjWh2Rj9opj&index=3
+
+Then, my team assign me the task to design cycle bot with reaction wheel in V-rep: I designed 
+the cycle bot and the file is shared in the group. 
+
+Mentoring session:
+
+1.In mentoring session we discuss how the centre of mass will effect our system, my designed 
+cycle bot ha very low centre of mass.
+
+2. Our mentor, use the example of sea-saw to figure out how the centre of mass system effect 
+the system. In which he places the two object of equal mass one close to pivoted point and
+one is away from it. As, the closer object has small perpendicular distt, it needed less force
+to stabalize and as Perpendicular distt increases the force required to stablize it required 
+more force with more rapidness. This point we have to consder in our project designing.
+
+3.Another plus point if the COM of the cycle is higher is that we get a minor better reacting 
+time. 
+
+4.then, he assigned a task first to model, simmulate and design simple inverted pendulum with
+reaction wheel.
