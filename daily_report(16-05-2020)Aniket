@@ -1,0 +1,21 @@
+Project 17 Team b  Saturday Aniket Nayak(16-05-2020)
+
+Its very tough day for us, we have to find all the errors and have rectify it. Yesterday,
+the oscillations in the inverted pendulum with motor is now rectified as per the instructions
+suggested by the other team member. But our team is not satisfied by it because i have 
+doubts regarding this because jai suggested that we have to set the pivot motor in mode
+of dependent mode to the reaction wheel motor.
+
+But we have to set is free to move. so, it can go on either direction of the axis .
+Then we shift all our main code from actuation to joint call back function in we are
+now controlling the torque not the velocity and apply the PID algorithm inside this 
+function without any conditions applied . Now, we can say it behaves ideally.
+
+Now, we shift our attention to second task to balance it without motor and make the base 
+V shape like structure so that only line of contact has to be set with the ground.
+Now, we design a model for that inspired a little from other team (only the base portion)
+I apply the algorithm for PID and various other logics and i am suceeded in my task.
+
+Tommorrow, i will try it on another design that i designed earlier and have some problem
+regarding the structure designing and try to figured it out. and also work on the designing
+of the final cycle bot design and try to perform various actions.
