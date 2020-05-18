@@ -1,0 +1,46 @@
+Weekly Report (week 1) Aniket Nayak team b
+ 
+Throughout the week, i learned alot of things.
+At the starting of the week, i gone through alot of reaserch papers and clear my doubts 
+about all the conceptual and theoretical portions. 
+
+like, how the project works and its work-flow, then i start some practise in v-rep 
+simulation software to physically model my design.But i have to consider all the factors
+which should effect my model in performance.
+
+Then, I learned how the physical parameters like length, centre of mass and other thing
+which would effect my model.
+
+then, mentor assigned to design and balance the simple inverted pendulum with reaction wheel
+(revolute joint at bottom). We faced alot of problems in this task as we all are new to
+the v-rep simulation software our model works but not works precisely as the oscillations
+in our is very high and the continous error comes in between the desired angle and angle
+of the pendulum.
+
+Then, we solved this problem, after we come to know that for joint controlling there is a 
+special fuction in the vrep which returns two values(velocity and torque).This functions our 
+problem.
+
+Mentor, assigned new task in which we have to change few things in our model like we have
+to eliminate the joint motor and used v shape structure in place of it. 
+After, completing first task we don't face much problem in completing this task.
+
+but, we are bit late, Then we have to complete our main model and balance cycle bot model.
+And also controls the speed of it and left right motion.
+
+This task, is also completed now, but we face problem not in designing or balancing but when
+the bot changes its angle 90 degree it changes its axis of rotation.So, the system not behaving
+properly at this particular portion because we are using world frame as a reference.
+
+Now, this problem is solved using fusion of accelerometer and gyroscope data and as main thing 
+for angle calculation.
+
+Contribution in tasks:
+1. designed all the three models(modigication is done by all the team member after)
+2. Done the coding portion for task 1
+3. develops PID alorithm for all the designs
+4. design the main cycle bot
+5. develop code for controlling the speed of the back motor and left right motion of the cycle
+   bot (Control these parameter as a user interface developed using XML code)
+
+All, the 3 task is submitted and updated at git hub.
