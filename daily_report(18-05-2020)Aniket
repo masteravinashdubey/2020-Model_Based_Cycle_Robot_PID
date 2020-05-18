@@ -1,0 +1,24 @@
+Daily report (18-05-2020)Aniket Nayak
+
+today, I learned about control system in which the main part is 
+Spring mass damper System.
+finding differntial Equation using newton's second law of motion.
+converting the Equation into s-domain function.
+
+And also observing the behaviour of the output in scilab using xcos.
+By changing the damping constant, i can see the change in the output
+function like, over damped system, critical damped system, under-damped system.
+
+learn about various parameters like, transient time, rise time, settling time.
+
+learned how to get zeros and poles from the transfer function.
+
+Stability criteria:-
+
+The numerator of the transfer fuction is called zeros and denominator is called poles.
+
+If a pole exists on the right plane of the graphical repersentation of the complex
+s-plane, it means system is unstable. 
+
+If a pole exists on the left plane of the graphical repersentation of the complex
+s-plane, it means system is stable.
