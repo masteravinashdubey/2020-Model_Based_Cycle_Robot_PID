@@ -1,0 +1,44 @@
+Project 17 daily_report(21-05-2020)Aniket Nayak
+
+Today, our day starts with mentoring session. 
+In which mentor guides us to how to select the correct problem statement which should cover 
+maximun number of topics. 
+
+then, we have our team meeting regarding this, we discuss some problem statement
+ans start eorking on it.
+
+Problem statement(1) and task:-
+
+Derive the differential equation and transfer function for spring mass damper system and plot poles and zeroes of it, state about stability from that.
+Relate time domain analysis with position of poles  with diffrent damping factor and spring constant. Use  sci-lab and Xcos for graphical analysis.
+And compare those results with experimental setup in vrep simulation and state your conclusion about damping with respect to position of poles in s plane.
+
+Topics covered:-
+
+1. Concepts of transfer function and  find poles and zeros.
+2. Model the system in scilab using xcos for time domain characteristics.
+3. Plot poles and zeros in complex s-plane representation to check the stability of the system.
+4. Observe the system behaviour for unit-step and impulse inputs in time domain.
+5. Scilab and xcos for graphical repersentation.
+6. Change damping factor and show effects of pole position in xcos and vrep both.
+7. Simulation in V-rep and ploting graph for time domain characteristics of the system.
+
+
+Problem statement(2) and topic covered:-
+
+Derive the differential equation and transfer function for a vertical motion of a  drone.
+Through the transfer function plot its  poles-zeros on s-plane graph, and state about its stability.
+And study about time domain characteristic for unit-step inputs.
+Design a controller to make drone reach and stable at one position height.
+Use the sci-lab and x-cos for graphical analysis.
+
+
+Topics covered:-
+1. Concept of transfer function
+2. Understanding poles and zeroes and the stability criteria
+3. Pole placement and PID controller designing
+4. Time domain characteristics
+5. Simulation in scilab
+
+
+then, I helped in making of presentation for the team.
