@@ -1,0 +1,11 @@
+(18/05/2020)-Hruthwik K
+
+Yesterday and today we worked on cycle bot simulation.
+we didn't face much problem as cycle bot is exactly similar to inverted pendulum with reaction wheel.
+
+In the next meeting we have to show the simulation of cycle bot i.e balancing with reaction wheel
+and also movement of the bot.so we designed interface to control the speed of the motor and direction of the handle.
+We used gyrosensor and accelerometer to get orientation because,if we use the function getObject Orientation then
+we will can use only on angle i.e w.rt x,y or z.If we turn the cycle then we should get angle w.r.t to different axis.
+So we considered gyrosensor and accelerometer.We used 96% of gyrosensor data and 4% of accelerometer data(Complementory filter)
+to get the the orientation.
