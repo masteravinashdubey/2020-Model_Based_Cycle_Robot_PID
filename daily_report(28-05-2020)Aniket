@@ -1,0 +1,12 @@
+Project 17 (28-05-2020)Aniket Nayak
+
+Today i made complete documentation on communication protocol for serial and wireless
+And then, for remote design, using an example/experiment on it.
+
+Problem statement: To control the speed of the DC motor wirelessly using Xbee module.
+then, how to design remote and the factor it dependa upon and controlling factors and cost
+effectiveness.
+
+In communication protocol documentation, it gives you an over view of SPI, I2C, UART serial 
+communication and how to configure Xbee and control and transmit data wirelessly
+and block diagram of working of the experiment.
