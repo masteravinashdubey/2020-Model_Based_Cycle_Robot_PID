@@ -1,0 +1,8 @@
+#internship week 3 day 5
+
+Today i have read full data sheet of mpu 6050 and mpu 6000 in this data sheet i got to know in more brief about some other features of mpu 6050 and listed out the registers and made an problem statement file and also roughly created its solution file where i have explained how to operate gy-521 board.
+
+#internship week 3 day 6
+Today I have completed the documentation of gy-521 and its problem statement also created an skeleton code for completing task to derive angle from mpu 6050 data and also completed to fuse that data. After that i have also wrote code for its solution. 
+Other than that i have designed experiment 4 and its solution to fuse data and send it to sir to verify it and review it .
+Today i have also studied kalman filter but because of lack of time i didn't implemented it in code. 
