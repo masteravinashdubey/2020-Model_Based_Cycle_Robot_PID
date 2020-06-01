@@ -1,0 +1,32 @@
+Project 17 (01-06-2020) Aniket Nayak
+
+Today, i spent mostly may time with the learning basics of kalman filter and how it works.
+How to find kalman filter gain, how it can adjust its value by the errors in estimation and 
+measurement.
+Through the value of kalman gain You can tell the which parameter gives you more accurate 
+results like if the value of kalman  gain is one then the meaurement by the instrument are 
+stable no uncernities present there. And if the value is more towards zero than the measuremnt
+are unstable but the estimation error will be small this factor compensate the the uncernities
+present and make the current estimation more accurate.
+
+Through, kalman you can handle uncernities pretty well.
+
+reference you tube:-
+https://www.youtube.com/watch?v=CaCcOwJPytQ&list=PLX2gX-ftPVXU3oUFNATxGXY90AULiqnWT
+(1-6 lectures)
+
+Only, studied about one dimensional kalman filter.
+----------------------------------------------------------------------------------------------
+
+Then we have guest lecture on India, China and indo-pacific ocean.
+
+By which i came across how oceans effect the countries and trade. And how countries business 
+influnced by oceans.
+----------------------------------------------------------------------------------------------
+
+Today, we also have mentoring session.
+Motive of mentoring session:-
+
+Why we have to change our system from countinous time domain function to descrete time domain 
+function?
+And to give us our future tasks.
