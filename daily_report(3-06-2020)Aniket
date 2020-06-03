@@ -1,0 +1,28 @@
+Project 17 daily report(3-06-2020) Aniket Nayak
+
+Today, i learned about Effect of samplying frequency. How it effect the output signal.
+I come to know about the condition of samplying process i.e Nyquist rate.
+
+ In general, to preserve the full information in the signal, it is necessary to sample at 
+twice the maximum frequency of the signal.  This is known as the Nyquist rate.  
+The Sampling Theorem states that a signal can be exactly reproduced if it is sampled at a 
+frequency F, where F is greater than twice the maximum frequency in the signal.
+
+Learned abou aliasing.
+As the sampling frequency decreases, the signal separation also decreases.  
+When the sampling frequency drops below the Nyquist rate, the frequencies will crossover 
+and cause aliasing.
+
+And aliasing can be prevented by using low-pass filter.
+
+Now, i am working on the documentation of the all the above topic.
+
+-----------------------------------------------------------------------------------------------
+Today we also have our guest lecture by Dr. Vandana shiva, it is very good session and we come
+to know about many policies of american which would adversely effects our life and effecting,
+she shares the cause of many diseases, which is misleaded to us in the name of healthy food.
+And changes our prospective towards the farming culture.
+
+And its been a great session much as a building character and change the prospective.
+-----------------------------------------------------------------------------------------------
+
