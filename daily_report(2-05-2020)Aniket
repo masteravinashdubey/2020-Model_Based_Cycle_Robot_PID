@@ -1,0 +1,26 @@
+Project 17 daily report(2-06-2020) Aniket Nayak
+
+Because of my final semester exams is from 8-06-2020 I to have submit all my college work 
+like presentations , case study report and internals. So, i was bit enagged in it.
+
+But i also contributed toward the task assigned. first i have to make a documentation on 
+Why we shift from continous to discrete?
+For that, i have to first understand about what is continous and discrete time signals.
+
+I watched this video for understanding the signals.
+
+https://www.youtube.com/watch?v=3vnI_o_B3tg
+-------------------------------
+continuous and discrete signal
+-------------------------------
+
+https://www.youtube.com/watch?v=14cMhrp5wlk
+-------------------------------------------
+why we shift from continuous and discrete
+-------------------------------------------
+
+After watching this it just cleared all my doubts about it.
+
+Then, i start making the doucmentation for this topic in this i included the disadvantages of 
+discrete time signals when conversion occurs from continous time signal like loss of 
+information, quantization error and delays and what is sampling time.
