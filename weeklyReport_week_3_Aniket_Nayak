@@ -1,0 +1,36 @@
+Project 17 week_report_3 Aniket Nayak
+
+In this week, 
+The major learning of the week is on the hardware part like appropriate design for the cycle 
+bot, components needed and their placement. Choosing the specfication and what are the factros
+that one should keep in mind while designing physically a bot.
+
+How to communicate with the bot wirelessly to control its parameter and the communication 
+protocols.
+
+How to choose approrite sensor which is both cost effective and performance effective.
+and the filter designing for the data give by sensor like complementary(applied) and kalman 
+filter( not applied theory only). 
+
+Then, the remote designing and optimization of the remote.
+
+And at last, all the components are assembled in v-rep software to see thw behaviour and whether 
+the placement of the system is stable and correctly placed or not. And this help us when we 
+design our model physically.
+
+This is the major learning in the technical portion.
+-----------------------------------------------------------------------------------------------
+
+Major learning from guest lectures.
+1. What is geo-politics?. How it effects us and our country.
+2. Geo-economics. in this part i learned how our gdp and economics of the works and what are 
+   factors  that a country depends and a true defination of the developing and developed country.
+3. Rise of technology in china.
+--------------------------------------------------------------------------------------------------
+
+My contribution :-
+1.Made the documentation for robot design.(problem statement and solution)
+2.Made the v-rep file in which you can see which components is placed where.
+3.Also made a document for it which component placed where and why.
+4.Experiment designing for communication protocol and remote design.
+5.Also the documentation for both(problem and soluton).
