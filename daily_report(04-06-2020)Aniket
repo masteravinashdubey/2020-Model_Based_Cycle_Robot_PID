@@ -1,0 +1,16 @@
+Project 17 daily report (4-06-2020) Aniket Nayak
+
+Today, i learned Transfer Function Conversion from continuous time to discrete time, i.e
+s-plane to z-plane and the stability criteria of the pole placement in the z-plane.
+
+You can manually convert it or you can use octave to convert the signal and show the poles to
+state about its stability, i.e if it is inside the unit circle then the system is stable, 
+otherwise it is unstable.
+
+Another thing is that You cannot directly give discrete signal to the plant/system as a 
+discrete is nothing but impulsess at different time intervals, we have to hold that impulse 
+signal until another impuse signal and this is called zero order hold(ZOD).
+In real world we use DAC and in octave we have the function for it we just have to pass the
+arrgument of 'ZOD' into  the funtion.
+
+Then, this signal is fed into the system to give the output accordingly.
