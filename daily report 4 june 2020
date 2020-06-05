@@ -1,0 +1,5 @@
+#internship week4 day 4 
+
+Today I have referred some documents to learn how to convert s domain transfer function to z domain transfer function and also visited basics about diffrent methods for that like zero hold method, impulse method etc. I have also analysed these all things in octave by plotting graphs and pole zero plots in s-plane and z-plane. 
+
+I have also created an skeleton code for experiment 1 (s-plane to z-plane ) and its solution also commented very well so that anyone can understand all things easily. I have started documenting now it's theory but because of dark out still some work is remaining.
