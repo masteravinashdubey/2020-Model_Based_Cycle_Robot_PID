@@ -1,5 +1,0 @@
-#internship week4 day 6 and day 7
-
-In this two days i have refer the whole interrupt portion from Atmega 2560 datasheet and made some rough notes about timer interrupt and how it generates PWM signals. I have also designed an basic experiment to test it on real Arduino mega board. Other then this i have documented all things in sequential manner to explain all the register to be modified in terms of generating delay of 1 sec. As the 8 bit timer/ counter is not enough to generate that much delay i have modified the written program for timer 1 instead of timer 0 because timer 1 is 16 bit timer. 
-
-After completing whole documentation i have generated an skeleton problem statement code for it and also generated well commented solution to blink led once per second. Also verified these things on Arduino mega.
