@@ -1,0 +1,19 @@
+# Internship Week 4 weekly report 
+
+In this week we supposed to design experiments and make documentations on the following topics and have to learn them properly.
+
+	1) Why to shift from Continuous to Discrete?
+	2) Transfer Function Conversion from continuous time to discrete time in octave
+	3) Changes in criterion of stability? Why ?
+	4) effect of sampling frequency
+	5) Ensuring uniform sampling in arduino by Writing ISRs
+	
+For explaining them in experimental way we have designed 2 experiments 
+
+	1) Explaining and performing discretisation on an continuous time system and testing and observing it on octave
+	2) Explaining and performing uniform sampling using timer interrupt in ATmega2560 with the use of Arduino mega board.
+During designing 1st experiment  we have learnt lot more things like z plane and relative stability and how to convert continuous time domain method to discrete time domain and corresponding z-domain(frequency domain) method and also why and how stability criteria gets changed with discretisation of signal. 
+
+During 2nd experiment I have learnt how to generate uniform sampling using timer interrupts. And also became familiar with the functionality of timers and counters in Atmega 2560.
+
+Other then this regular work we were also having an u-villa presentation on A-I and its effect on jobs and socity. I was eagerly wanted to join this presetation but as because of dark out i couldn't attend any phase of that.
