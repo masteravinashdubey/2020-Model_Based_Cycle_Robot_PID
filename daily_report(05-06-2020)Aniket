@@ -1,0 +1,20 @@
+Project 17 daily report (05-06-2020) Aniket Nayak
+
+Today, i learned about the timers and counters hardware ones. I am only used the software 
+function of millis() in arduino for the timer. 
+
+Now, how to use hardware timers to count the pulses and through pulses you can count the time
+in seconds.
+You can modify the specs of the timers by writing the correct register values and prescalar.
+
+And for uniform samplying we use interrupt service routine and timer both to get the result.
+Interrupt generraly doesnot effects the main code(it runs smoothly as per code) But when 
+interrupt occurs it goes to that section and execute that code and then resumes the main code.
+
+There are inbuilt function to enable interrupts and use as per your need.
+
+Start, reaserching about our topic AI WILL TAKE AWAY JOBS OR NOT?
+
+Then, we have our presentation cremony on different topics as allotted by their respective
+vills, today we have only 3:-
+From this session, we learned alot new things and creativity of villa-mates. 
