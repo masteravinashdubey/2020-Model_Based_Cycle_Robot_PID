@@ -1,0 +1,26 @@
+Project 17 Weekly report week 4 Aniket Nayak 
+
+In this week, i learned a alot of things but the major learning are :-
+
+1. Why to shift from countinous to discrete time function.
+2. Change the transfer function from s-plane to z-plane for discretization to know about
+   its stability criteria and the behaviour of the discrete system.
+   -- Implementation in octave and the conversions from countinous to discrete and zero order
+      hold(ZOD)
+3. Effect of samplying frequency.
+   --aliasing
+   --anti-aliasing filter
+4. How to do uniform samplying using interrupts 
+   --Hardware generated timers/counters.
+
+Although, every member of the team helps each other in almost every work and contributes to
+complete all the tasks, But my mojor countribution in it is:-
+
+1. Documentation of Why to shift from countinous to discrete time function.
+2. Documentation of Effect of samplying frequency.
+3. Helps in the 2 and 4 part of major learning, in finding the problem statement and solving 
+   the problems.
+
+Alot of things learned from the presentation cremony and the topic assigned to us.
+My countribution in the presentation is in collecting datas for the impact of Ai in jobs and 
+region, this file is shared in the github repo by the name of "DATA FOR IMPACT OF AI".
