@@ -1,0 +1,26 @@
+Project 17 daily report (09-06-2020) Aniket Nayak
+
+We have assigned all the future tasks, now we have to work on it.
+ME and Hruthwik disussed about the document part and split the work.
+
+First, we both working on the document of "EFFECT OF PROPORTIONAL CONTROLLER" 
+and we completed that documentation of this task.
+
+Now, hruthwik is working on the documentation of "Integral and derivative controller"
+
+And i am working on "Why not Derivative or Integral Controller alone?"
+The documentation of this is also completed, today my discoed is not working that's i didn't
+shared it yet.
+
+Why not Derivative or Integral Controller alone? in this document i discussed these points given
+below:-
+
+1. can we use integral and derivative alone and the problems withit.
+2. We combine them with proportional controller, they works properly or not
+3. What are condition in which they work well and conditions at which performance lags.
+
+Referred link:-
+https://nptel.ac.in/content/storage2/courses/108105063/pdf/L-12(SS)%20(IA&C)%20((EE)NPTEL).pdf
+----------------------------------------
+PID control and things related to it
+----------------------------------------
