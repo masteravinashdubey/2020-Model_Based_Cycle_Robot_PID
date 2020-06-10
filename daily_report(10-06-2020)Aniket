@@ -1,0 +1,17 @@
+Project 17 daily report (10-06-2020) Aniket Nayak
+
+Today i learned about how to tune the PID parameters manually by looking at its behaviour.
+There are alot of methods available but the two good methods i learn is given below:-
+1. Heuristic A Method and 
+2. Zeigler-Nichols Method
+
+From this two method you can tune your PID parameters pretty well.
+
+Then after i documented the "IMPLEMENTATION OF PID IN ARDUINO"
+and "TUNING THE PID PARAMETERS".
+documentation of both the things are done.
+
+GUEST LECTURE :-
+We have guest lecture on "NOT LISTEN TO YOUR PARENT", the topic is little wierd but after 
+attending the session it clears my doubt why the title of the topic is like this.
+Learning : Why we should invest money at very early stage and the purpose of it.
