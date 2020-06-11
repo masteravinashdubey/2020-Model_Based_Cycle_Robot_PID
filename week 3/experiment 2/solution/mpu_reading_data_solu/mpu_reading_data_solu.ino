@@ -28,7 +28,7 @@ void loop() {
  Serial.print("degree_gyro: ");
  Serial.print(degree_gyro);
  Serial.print("degree_accl: ");
- Serial.print(degree_accl);
+ Serial.println(degree_accl);
  delay (5);
 }
 
@@ -90,7 +90,8 @@ void read_accel(float accelDivisor){
     temp0 = Wire.read() << 8;           //read upper byte of Z
     temp1 = Wire.read();                //read lower byte of Z
     AccelZ = (float) (temp0 | temp1);
-    AccelZ = AccelZ / accelDivisor;     
+    AccelZ = AccelZ / accelDivisor;
+    Serial.print ("temp1");     
   }
 }
 float read_gyro(float gyroDivisor){
