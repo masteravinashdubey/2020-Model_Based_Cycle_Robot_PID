@@ -12,6 +12,8 @@ float degree_gyro = 0;
 int Ts = 0.005;
 
 void setup() {
+  Wire.begin();
+Wire.setClock(400000UL);
 reset_mpu(); // reset mpu
 set_gyroSensitivity(0x10); // set gyro to +/- 1000 dps
 set_accelSensitivity(0x00);//set accl to +/- 2g

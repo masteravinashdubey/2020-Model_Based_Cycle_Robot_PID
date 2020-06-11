@@ -43,3 +43,26 @@ turnservo.attach (turn_servo_pin);
 turnservo.write(turnwheel);
 }
 
+void run_Rwheel(float torque)
+{
+torque = constrain (torque, -255, 255 );
+if (torque > 0)
+{
+    analogWrite(Rwheel_en,abs(torque));
+    digitalWrite(Rwheel_m1, HIGH);
+    digitalWrite(Rwheel_m2, LOW);
+}
+else if (torque < 0)
+{
+    analogWrite(Rwheel_en,abs(torque));
+    digitalWrite(Rwheel_m1, LOW);
+    digitalWrite(Rwheel_m2, HIGH);
+}
+else
+{
+    analogWrite(Rwheel_en,0);
+    digitalWrite(Rwheel_m1, LOW);
+    digitalWrite(Rwheel_m2, LOW);
+}
+}
+

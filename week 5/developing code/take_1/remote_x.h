@@ -17,7 +17,6 @@ void read_remote()
         {   
             Serial1.read();
         }
-
           jx = (Serial1.read()<<8) | Serial1.read();
           jy = (Serial1.read()<<8) | Serial1.read();
           Serial1.read();
