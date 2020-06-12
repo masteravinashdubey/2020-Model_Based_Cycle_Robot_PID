@@ -1,0 +1,9 @@
+#internship week 5 day1, day2, Day3
+
+In these 2 days i have tested whole robot sensors actuators and circuit connections and found almost completely working the servomotor connections was not appropreate so i  have fixed them 
+Other then it i have also generated 3 header files 
+	1.  for controlling all 3 motors 
+	2.  for reading and fusing data from MPU 6050.
+	3. For handing and analysing data coming from remote through XBEE
+	
+After generating this  header file i have created an main file from which every portion of this header file will be called according to requirement. I have tested all the functions of robot using this code and it was found perfect finally i have added PID controller in the programme code and  tested seems values but it seems like the inertia of wheel is still low according to the requirement so tuning is still going on and i will modify it if I founds any requirement  
