@@ -1,0 +1,14 @@
+Week4 Report
+
+Hruthwik K
+Date:01 to 07 June
+
+In these week as per the schedule we worked on some topics to gain deeper understanding in control system.
+We designed 2 experiments for the explanation of the topics
+
+1)Converting transfer function from continous to discrete in octave.
+2)Uniform sampling by writing ISRs.
+
+I learnt about how interrupts actually work and we implemented blinking led using timer1.
+
+We had villa wise presentations,but due to heavy rain i coudn't attend that.
