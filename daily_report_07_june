@@ -1,0 +1,6 @@
+(07/06/2020)-Hruthwik K
+
+Because of heavy rain,I didn't have network,So i was not able to work yesterday
+Today prit and me discussed about writing ISR and uniform sampling,we decided to take an example of
+led blinking by using timer0 but later we got to know that timero is not enough as it
+is 8 bit timer so we used timer1(16 bit).
