@@ -6,15 +6,15 @@
 float AccelX, AccelY, AccelZ = 0;              ////scaled data from MPU accl(force)
 float accelYangle = 0;////angle calculated from accl(degree)
 float GyroX, GyroY, GyroZ = 0;                 ////scaled data from MPU  gyro(degree/sec)
-float pitch , gyroYang;
+float pitch, gyroYang;
 void readGyro(float);
 void readAccel(float);
 void initiate_pitch();
 
 //--------------------------------------------------------------------------
-float Ts = 0.005; //////main frequency  - 400hz
-float alpha_comp = 0.97;  //perfectly tuned filter at alfa = 0.98
-float gyroffset = 2.23;   //offset in anglar velocity
+float Ts = 0.005; //////main frequency  - 200hz
+float alpha_comp = 0.96;  //perfectly tuned filter at alfa = 0.98
+float gyroffset = 1.75;   //offset in anglar velocity
 //-----------------------------------------------------------------
 float dataFusion()
 {   
@@ -25,7 +25,8 @@ float dataFusion()
   gyroYang =  pitch + GyroY* Ts;
   accelYangle = ((atan(-1 * AccelX / sqrt(pow(AccelY, 2) + pow(AccelZ, 2)))) * 180 / PI);     //in  degree(method 2)
   pitch       = (alpha_comp* (pitch + GyroY* Ts)) + ((1.0 - alpha_comp) * accelYangle);       // in degree
-return (-pitch);
+
+return (-pitch );
 }
 
 void readAccel(float accelDivisor)
@@ -62,7 +63,8 @@ void readGyro(float gyroDivisor){
     int16_t temp1 = Wire.read();        //read lower byte of X
     GyroY = (float) (temp0 | temp1);
     GyroY = GyroY / gyroDivisor ;
-//Serial.println("GYRO call");
+    GyroY = GyroY-gyroffset;
+//Serial.println(GyroY);
   }  
 }
 
@@ -92,11 +94,11 @@ void resetMPU()
   setGyroSensitivity(0x10);   //programmable range of +/-250, +/-500, +/-1000, +/-2000 DPS
   setAccelSensitivity(0x00);  //programmable range of +/-2g, +/-4g, +/-8g, +/-16g
 
-  //initiate_pitch();
+  initiate_pitch();
 
 }
 void initiate_pitch()
-{ 
+{ //Serial.println ("pitch initiation started");
   for (int i=0; i < 1000; i++)
   {
    readAccel(16384.0);
@@ -104,12 +106,12 @@ void initiate_pitch()
    delay (3);
   }
   pitch = pitch/1000;
-//  while (1)
-//  {
-//    dataFusion();
-//    if (pitch < 1 && pitch >-1)
-//    break;
-//  }
+  while (1)
+  {
+    dataFusion();
+    if (pitch < 1 && pitch >-1)
+    break;
+  }
 }
 
 
