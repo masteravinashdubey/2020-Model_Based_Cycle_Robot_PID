@@ -1,0 +1,16 @@
+#internship week 5 weekly report 
+
+In this week I have started to built real physical hardware first of all I thought to built it from wooden material but it was increasing size and weight of cycle so i have decided to make it from aluminium pipes and scrape to make it less in size and light weight. 
+The full construction of real physical model of cycle is described here:
+
+https://github.com/masteravinashdubey/Model_Based_Robot_PID/blob/PRITVARMORA_Reports/physical%20consruction.pdf
+
+I have also developed whole working code distributed in 3 header files and 1 main function file and also tested the same the first basic code is here:
+
+https://github.com/masteravinashdubey/Model_Based_Robot_PID/tree/master/week%205/developing%20code
+
+I have also tuned and nullified gyro and angle offsets by experimenting lots of things on it  and modified the file according to it.
+
+Other then it I have changed some hardware as per requirement like increasing inertia of reaction wheel.
+
+I have tried a lot to balance the bot by tuning the PID controller of it but till now i just failed to do this.
