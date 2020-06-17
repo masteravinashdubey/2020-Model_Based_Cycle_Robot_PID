@@ -1,0 +1,36 @@
+Project 17 weekly report week_5 Aniket Nayak
+
+This week much devoted to the physical designing of the cycle bot and the controller 
+designing. And to learn and document about the effects, limitation of P-I-D controller 
+individually and combine and how it will effiect the system behaviour.
+
+And also the navigation of cycle bot and remote control and its documentation.
+
+MAJOR LEARNING :-
+
+1. Effect of proportional controller, proportional controller is directly proportional
+   to the  error signal almost done our work, but not completely because of the
+   steady state error.
+2. Effect of derivative and integral regulators in PID controller i.e
+   --integral controller makes the system slow but can rectify the steady state error.
+   --derivative controller makes the system beviour faster and quick but the 
+     derivative controller is highly sensitive to the noise.
+3. Why not Derivative or Integral Controller alone. What are the problem associated with
+   this and it will affects the system behaviour or not. If affect at what cost.
+4. Implementing PID in Arduino and Tuning the Parameters.
+     I learned about how to tune the PID parameters manually by looking at its behaviour.
+     There are alot of methods available but the two good methods i learned is given below:-
+     1. Heuristic A Method and 
+     2. Zeigler-Nichols Method
+
+MY MAJOR CONTRIBUTION :-
+Although all the work is done by the team work and after discussion, my major contributtion
+in the documentation and other is given below :-
+
+1. Why Derivative and/or Integral Controller?
+2. Why not Derivative or Integral Controller alone?
+3. Implementing PID in Arduino and Tuning the Parameters.
+4. Strategy for Navigation Via Remote Control
+5. Effect of Proportional Controller( majorly hruthwik)
+6. Helps prit in component placement for physical design( design idea(v-rep) is given by me But 
+   making the whole body with one aluninum pipe that is by prit). 
