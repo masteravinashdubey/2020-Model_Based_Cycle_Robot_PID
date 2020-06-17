@@ -130,8 +130,8 @@ void average1(){
      
 }*/
 void complimentary(){
-  roll=(0.96*gyro_angle_x + 0.04*roll);
-  pitch=(0.96*gyro_angle_y +0.04*pitch);
+  roll=(0.965*gyro_angle_x + 0.035*roll);
+  pitch=(0.965*gyro_angle_y +0.035*pitch);
   yaw=gyro_angle_z;
    Serial.print(roll);//blue on plotter
   Serial.print(",");//red on plotter
