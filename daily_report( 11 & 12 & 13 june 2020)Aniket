@@ -1,0 +1,35 @@
+Project 17 daily report (11 & 12 & 13-06-2020) Aniket Nayak
+
+In these three days, i completed all my tasks and documentation of this week.
+As my final semester exam is going on i am busy on that part also, but i done my
+part of all the documentation process. 
+
+1. Effect of derivative and integral regulators in PID controller i.e
+   --integral controller makes the system slow but can rectify the steady state error.
+   --derivative controller makes the system beviour faster and quick but the 
+     derivative controller is highly sensitive to the noise.
+
+2. Done with the documentation of this in which i explain the mathematics of both the
+   integral and derivative regulator individually and how it contributed towards the
+   behaviour of the system and there limitations.
+
+3. Navigation of cycle bot and remote control
+   In this documentation i explain how the remote control the left right motion and
+   what to do with the joystick to control the speed of the cycle bot and the forward 
+   and reverse motion and left right motion via remote(joystick). This part is not
+   the technical doucment but the manual to navigate the cycle bot using remote.
+
+All of them can understand it while reading, the technical part and the science behind 
+it is explained earlier documentation in the week 3.
+All the week tasks is completed and uploaded on git hub.
+
+guest lecturs and mentoring session:-
+
+In the guest lecture, sriram sir explained how to write code and how to pre process the
+the code while writing and the order to make system more robust.
+
+Motive of mentoring session is to solve our problems that we are facing like we were
+modifing alot the structure of the reaction wheel and we are not getting how much
+we have to put the weight of that. But our mentor tells us to stick with the one weight
+and change in code to balance.
+    
