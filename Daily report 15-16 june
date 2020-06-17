@@ -1,0 +1,9 @@
+#internship week 6 day 1 day 2 
+
+During these 2 days i have plotted lots of graphs of inclination angle of bot and also for resultant torques generated.
+
+One main thing i have concluded after a long time is that my body is vibrating a lot because of vibration in motor and it was distorting measurement of inclination angle so first of all i have fixed some movable parts in body and the main thing generating vibration was loose disk so i have also fixed it with araldite adhesive. 
+
+Though the 50-60% vibration was removed perfectly by this fixing, it was still affecting and generating spikes in inclination measurement so I have tried tuning the filter but I was facing the problem was that, if I increase weightage of gyroscope measurement to reduce noise, it was making fusion out put very much slower. And if I decrease the weightage of gyro sensor it was increasing the noise and it tenced to vibrate motor a lot as it was getting scaled by proportional gain. So as it was a bit high frequency noise I have tried reducing the sampling frequency from 200 Hz to  50 Hz  and I was able to ignore that noise caused by body vibration. 
+
+Now I am tuning the PID controller again to balance it with this properly filtered inclination angle
