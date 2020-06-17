@@ -10,7 +10,6 @@ float pitch, gyroYang;
 void readGyro(float);
 void readAccel(float);
 void initiate_pitch();
-uint32_t      timer, timer1;
 
 //--------------------------------------------------------------------------
 float Ts = 0.03; //////main frequency  - 200hz
@@ -18,10 +17,7 @@ float alpha_comp = 0.85;  //perfectly tuned filter at alfa = 0.98
 float gyroffset = 1.75;   //offset in anglar velocity
 //-----------------------------------------------------------------
 float dataFusion()
-{   
-  readAccel(16384.0);                                                                         //read XYZ Accel data from registers 0x3B to 0x40 
-  readGyro(32.75);                                                                            //read XYZ Gyro data from registers 0x43 to 0x48`
-  //Serial.println((micros()- timer1));
+{    
  //accelYangle = (atan2(AccelX, abs(AccelZ))) * 180 / PI;                                     //in  degree(method 1)
   gyroYang =  pitch + GyroY* Ts;
   accelYangle = ((atan(-1 * AccelX / sqrt(pow(AccelY, 2) + pow(AccelZ, 2)))) * 180 / PI);     //in  degree(method 2)
@@ -86,7 +82,7 @@ void setGyroSensitivity(uint8_t dps){
 }
 
 void resetMPU()
-{
+{ //Serial.println ("pitch initiation started");
   Wire.beginTransmission(MPUaddr0);   //initialize comm with MPU @ 0x68
   Wire.write(0x6B);                   //write to register 0x6B
   Wire.write(0x00);                   //reset all internal registers to default values
@@ -99,7 +95,7 @@ void resetMPU()
 
 }
 void initiate_pitch()
-{ //Serial.println ("pitch initiation started");
+{ Serial.println ("pitch initiation started");
   for (int i=0; i < 1000; i++)
   {
    readAccel(16384.0);
@@ -108,7 +104,9 @@ void initiate_pitch()
   }
   pitch = pitch/1000;
   while (1)
-  {
+  { 
+    readAccel(16384.0);                                                                         //read XYZ Accel data from registers 0x3B to 0x40 
+    readGyro(32.75); 
     dataFusion();
     if (pitch < 1 && pitch >-1)
     break;

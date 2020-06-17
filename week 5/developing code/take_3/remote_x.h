@@ -21,7 +21,6 @@ void read_remote()
           jy = (Serial1.read()<<8) | Serial1.read();
           Serial1.read();
           Adjust_rmt_Data();
-          //Serial.println("doneeeee");
     }
 }
 }
@@ -33,7 +32,6 @@ void Adjust_rmt_Data()
 if (jx < 470){
   
     backwheel = map(jx, 470, 0, 0, -254);  //backward
-        //Serial.println(turnwheel);
 
 }
 
@@ -51,7 +49,6 @@ if (jy < 400) {
   
 else if (jy > 550) {
     turnwheel = map(jy, 550, 1023, angle_0, angle_0-65);                         // right
-    Serial.println(turnwheel);
 }
 
 else if (jy <550 && jy >470) {
