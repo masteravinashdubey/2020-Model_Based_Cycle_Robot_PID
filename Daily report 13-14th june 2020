@@ -1,0 +1,5 @@
+#internship week 5 day 6 , day 7
+
+As I have found the inertia of disk very low according to the requirement, I have made and new reaction wheel which is having 225 grams weight and also constructed by attaching 3 metal discs with each other instead of using plastic fibre disc. 
+
+It helped me a lot to increase inertia and decreasing maximum motor RPM requirement. And now it seems like motor RPM saturation problem is some how reduced. And I have also tried tuning the PID controller by increasing proportional gain until robot oscillates around desired set point angle zero. But after very much tries of tuning I was un able to tune it.
