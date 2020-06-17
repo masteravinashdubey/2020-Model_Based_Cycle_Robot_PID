@@ -1,0 +1,41 @@
+Project 17 daily report (15 & 16 & 17 june 2020) Aniket Nayak
+
+This week devoted towards the physical implementation of the cycle bot controlling and 
+balancing. The physical structure is finished and wwe are moving towards the software
+part and code to control and balance the cycle bot.
+
+In these three days, i worked on the MPU6050 to get the angle and fuse both the 
+accelerometer and gyroscope to get the correct angle at proper rate. so that, the 
+reaction wheel rotate at correct time to balance it.
+
+First, i learned how to get the angle from accelerometer using wire.h I2C library,
+by reading and writing the correct register values to set the sensitivity of the
+sensor and to get the Raw data. now, to get the correct angle from the raw data, first
+we have to divide the data with sensitivity. It will give u acceleration at three axis.
+Now, apply trignometry to get the angle correct.
+
+Make sure to use atan2 function to find angle because it will make sure that the angle
+is between -pie to pie. Otherwise the angle will counting and counting to give not 
+appropriate result.
+
+Second, now, to get the angle from gyroscope, all the process for the gyro is same as of
+accelerometer, but it will give you angular velocity not angle. To get the angle we have 
+to integerate it. Then we get the value of angle from that also.
+
+Third, sensor fusion using complimentory filter, it is nothing but multiplying the 
+angle of both the sensors with appropriate alfha gain and add them. Make sure that
+the sum of both gain should one.
+
+But the another problem we faced is that the bias error i.e if the senor is its intial
+or given zero rotation all the values are not zero, there is some error. So, we will 
+collected some angle value for some time and take the average of it and subtract it with
+the angle once in void setup.
+
+Another problem we faced is that, accelerometer is very good for the short time span and
+gyroscope is very good for long time span. But the noise is very high in case of accell.
+If we gave large weight to accelerometer it cause noise. And if we gave much weight to 
+gyro it will make our system slow and give the data very late. This is exactly happens.
+Tuning the alfha gain is very critical at performance.
+
+Now, it is tunned and give data at right time and much closer to the right value of angle.
+But, still our cycle is not balnced we are working on it. Tunning is really taking time.
