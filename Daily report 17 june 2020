@@ -1,0 +1,13 @@
+#internship week 6 day 3
+
+Today I have started modifying the code to maintain uniform sampling using timer interrupts but while using it was clashing ISR definition as they all are already defined in Servo.h library even if it is using only timer 1 for our purpose
+So i have found a new library for servo from internet which only defines ISR for timer 2  and i have aain modified the program and the current status is as below:
+
+all ISR vectors are perfect
+Register configuration is also perfect
+ISR of timer1 is  not conflicting with ISR of Servo (solved issue)
+
+unsolved issues :x: 
+the servo is behaving strange while running ISR B with data fusion call
+
+all ISR gets crashed while i uncomments ISR C  because of interaction with MPU 6050(nay be because it uses ISR too)
