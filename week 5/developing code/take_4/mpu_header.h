@@ -22,7 +22,6 @@ float dataFusion()
   gyroYang =  pitch + GyroY* Ts;
   accelYangle = ((atan(-1 * AccelX / sqrt(pow(AccelY, 2) + pow(AccelZ, 2)))) * 180 / PI);     //in  degree(method 2)
   pitch       = (alpha_comp* (pitch + GyroY* Ts)) + ((1.0 - alpha_comp) * accelYangle);       // in degree
-return (-pitch );
 }
 
 void readAccel(float accelDivisor)

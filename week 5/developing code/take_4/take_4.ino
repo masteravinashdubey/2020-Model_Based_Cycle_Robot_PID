@@ -62,17 +62,23 @@ run_front_servo();
 }
 
 ISR(TIMER1_COMPA_vect)     //writing ISR with vector for timer 1A  // run pid calculation after 20ms it willl take 200 micro sec time         
-{
+{//sei();
   PID_controle();
+  Serial.println("3");
   }
 ISR(TIMER1_COMPB_vect)     //writing ISR with vector for timer 1B  //run data fusion after 19 ms it will take 400 micro sec time            
-{ 
-//  bot_inclination = dataFusion();
+{ //sei();
+  dataFusion();
+  bot_inclination = -pitch;
+  Serial.println("2");
+
   }
 ISR(TIMER1_COMPC_vect)     //writing ISR with vector for timer 1C  // grabing data at 18 ms it takes around 700 micro sec          
-{
-//  readAccel(16384.0);                                                //read XYZ Accel data from registers 0x3B to 0x40 
-//  readGyro(32.75); 
+{ sei();
+  readAccel(16384.0);                                                //read XYZ Accel data from registers 0x3B to 0x40 
+  readGyro(32.75); 
+  Serial.println("1");
+
   }
 
 //######################################################---------------------------------------------PID controler here
