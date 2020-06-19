@@ -13,21 +13,18 @@ void initiate_pitch();
 uint32_t      timer, timer1;
 
 //--------------------------------------------------------------------------
-float Ts = 0.03; //////main frequency  - 200hz
-float alpha_comp = 0.85;  //perfectly tuned filter at alfa = 0.98
+float Ts = 0.02; //////main frequency  - 200hz
+float alpha_comp = 0.98;  //perfectly tuned filter at alfa = 0.98
 float gyroffset = 1.75;   //offset in anglar velocity
 //-----------------------------------------------------------------
 float dataFusion()
 {   
   readAccel(16384.0);                                                                         //read XYZ Accel data from registers 0x3B to 0x40 
   readGyro(32.75);                                                                            //read XYZ Gyro data from registers 0x43 to 0x48`
-  //Serial.println((micros()- timer1));
- //accelYangle = (atan2(AccelX, abs(AccelZ))) * 180 / PI;                                     //in  degree(method 1)
+  accelYangle = (atan2(-AccelX, -AccelZ)) * 180 / PI;                                     //in  degree(method 1)
   gyroYang =  pitch + GyroY* Ts;
-  accelYangle = ((atan(-1 * AccelX / sqrt(pow(AccelY, 2) + pow(AccelZ, 2)))) * 180 / PI);     //in  degree(method 2)
   pitch       = (alpha_comp* (pitch + GyroY* Ts)) + ((1.0 - alpha_comp) * accelYangle);       // in degree
-
-return (-pitch );
+  return (-pitch );
 }
 
 void readAccel(float accelDivisor)
@@ -64,7 +61,7 @@ void readGyro(float gyroDivisor){
     int16_t temp1 = Wire.read();        //read lower byte of X
     GyroY = (float) (temp0 | temp1);
     GyroY = GyroY / gyroDivisor ;
-    GyroY = GyroY-gyroffset;
+    GyroY = -GyroY+gyroffset;
 //Serial.println(GyroY);
   }  
 }

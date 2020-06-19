@@ -3,12 +3,12 @@
 #include "mpu_header.h"
 //######################################################---------------------------------------------declarations
 
-float Kp = -120.80820362847, Ki = 0, Kd = 0;
+float Kp = -180, Ki = -0.1, Kd = -0.6;
 //float Kp = -27014.7125538481, Ki = -21183.1159387893, Kd = -5137.85556983136;-6.98870101025249
 //float Kp = -27000, Ki = 0, Kd = -5137.85556983136;
 //######################################################---------------------------------------------declarations
 
-float set_point = 2.32;
+float set_point = 2.16;
 float error= 0, error_d = 0,  error_i = 0 , prev_error = 0;
 float Rmotor_torque ;
 //######################################################---------------------------------------------SETUP
@@ -49,14 +49,14 @@ run_Rwheel(Rmotor_torque);
 //Serial.print(accelYangle);
 //Serial.print(" ------- ");
 //Serial.print(gyroYang);
-////Serial.print(" ------- ");
-////Serial.print((Kd* error_d));
-////Serial.print(" ------- ");
-////Serial.print((Ki * error_i));
-////Serial.print(" ------- ");
-////Serial.print((Kp * error));
 //Serial.print(" ------- ");
-//Serial.println(pitch);
+//Serial.print(GyroY);
+//Serial.print(" ------- ");
+//Serial.print(AccelX);
+//Serial.print(" ------- ");
+//Serial.print(AccelZ);
+Serial.print(" ------- ");
+Serial.println(pitch);
 //######################################################
 
 while(micros() - timer < Ts * 1000000); ////minimum time gap remains to burn is 1.2 ms so we can afford Fs = 200 Hz ~ Ts = 5 ms is optimum
