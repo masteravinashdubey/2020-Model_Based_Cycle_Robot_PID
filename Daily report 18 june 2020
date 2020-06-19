@@ -1,0 +1,11 @@
+#internship week 6 day 4
+Today I have found the solution for problem within the interrupt timer 1 c compare match register there the problem was that I2c communication also using an Hardware interrupt for storing data in global buffer so when an ISR gets called it disables all other interrupt before entering in to the ISR so I2c communication faces problem while storing data in to the buffer 
+
+As in data sheet its mentioned as: 
+"When an interrupt occurs, the Global Interrupt Enable I-bit is cleared and all interrupts are disabled. The user software can write logic one to the I-bit to enable nested interrupts. All enabled interrupts can then interrupt the current interrupt routine. The I-bit is automatically set when a Return from Interrupt instruction – RETI – is executed. "
+
+So for generating nested interrupt we must manually reenable global interrupt enable flag after entering in ISR so the problem was settled using sei() at the starting of the ISR for timer1 c.
+
+Today in working code take_2 I have found some very basic problem of sign convection actually gyroscope calculated angle and accelerometer calculated angle were in opposite direction from each other that's why at little bit high frequency the fused angle was lagging vary much and it was making system un stable but after settling it i have found satisfactory data fusion result at filter coefficient 97% of gyro angle dependence without introducing much noise
+
+So now I will start tuning robot from tomorrow.
