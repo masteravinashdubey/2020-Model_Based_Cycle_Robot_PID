@@ -1,15 +1,15 @@
 #include "remote_x.h"
 #include "motor_run.h"
 #include "mpu_header.h"
-//######################################################---------------------------------------------declarations
+//######################################################-------------------------------------------declarations
 
 //float Kp = -180, Ki = -100, Kd = -0.5;
-float Kp = -120, Ki = -70, Kd = -0.75;
+float Kp = -90, Ki = -70, Kd = -1;//-0.6;
 //float Kp = -27014.7125538481, Ki = -21183.1159387893, Kd = -5137.85556983136;
 //float Kp = -27000, Ki = 0, Kd = -5137.85556983136;
 //######################################################---------------------------------------------declarations
 
-float set_point = -4.48;//-2.32;
+float set_point = -3.32;
 float error = 0, error_d = 0,  error_i = 0 , prev_error = 0;
 float Rmotor_torque ;
 //######################################################---------------------------------------------SETUP
@@ -65,10 +65,10 @@ void loop() {
   Serial.print((Kp * error));
   Serial.print(" ------- ");
   Serial.print((Ki * error_i));
-  Serial.println(" ------- ");
-  //Serial.print((Kd* error_d));
-  //Serial.print(" ------- ");
-  //Serial.println(error);
+  Serial.print(" ------- ");
+  Serial.print((Kd* error_d));
+  Serial.print(" ------- ");
+  Serial.println(error);
   //######################################################
 
   while (micros() - timer < Ts * 1000000); ////minimum time gap remains to burn is 1.2 ms so we can afford Fs = 200 Hz ~ Ts = 5 ms is optimum
