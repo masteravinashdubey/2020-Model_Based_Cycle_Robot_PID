@@ -1,0 +1,34 @@
+Project 17 weekly_report week 6 Aniket Nayak
+
+The main focus of this week is to balance the cycle bot and do all the activities 
+related to this like code to get the right angle, for uniform samplying, for navigation
+remote control and controlling the reaction wheel.
+
+We faced numerous problems in this week and solved quiet few of it but our ultimate goal
+to balance the cycle bot is still not achieved.
+
+All the stuff done by us or me is explained in the daily reports along with the problem
+faced. So, i don't repeat it here all the things just putting the heading of it.
+
+MAJOR PROBLEMS FACED:-
+
+1. Tuning the complimentary filter - when we give weightage to gyro rate of giving data
+   lags if u give the weight to accelerometer noises becomes sensitive to the angle.
+
+2. In uniform sampling - compilation error
+
+3. Tuning the PID parameters.
+
+PROBLEMS SOLVED:-
+
+1. tunning of filter is done and angle values are comming well but i try to learn the 
+   kalman filter and implement it but it needs time and our mentor suggested to stick
+   with the complimentory.
+
+2. using the library servoTimer2 we get rid of the complilation error, but the system 
+   still doen't repond to the code, but we find the alternative for that.
+
+But the biggest problem is still not solved is the tuning of the PID parameters, we did
+almost everything to find it but we still cannot do, we are working on it and hopefully
+we will do that before the deadlines. 
+ 
