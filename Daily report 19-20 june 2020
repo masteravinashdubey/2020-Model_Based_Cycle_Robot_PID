@@ -1,0 +1,18 @@
+
+#internship week 6 day 5 and day 6 
+
+During these 2 days the main task was to tune PID controller and i tried to do so;
+
+Strategy 1: 
+
+First off all I have tried to tune proportional controller  and after getting little bit oscillatory behaviour I started to increase derivative gain but at any point it couldn't balance so much so i have also started to increase integral gain to reach up to set point perfectly  
+
+Strategy 2:
+
+First off all I have tried to tune proportional controller  and after getting little bit oscillatory behaviour I started to increase integral gain but at any point it couldn't balance so much so i have also started to increase derivative gain to make it responsive to littel changes but it was causing system to be more responsive to high frequency noise.to decrease its effect i have tried reduce sampling frequency.
+
+Strategy 3: 
+
+Now tuning directly with manual approach didn't worked so much so i have created an mathematical model and also discretised it  in MATLAB and then i have used its auto tune feature for PID tuning but it didn't worked and gains that i were getting were very higher 
+
+Now tomorrow i will try zigler-nicolas method of tuning 
