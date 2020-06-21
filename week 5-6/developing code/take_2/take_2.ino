@@ -7,7 +7,7 @@
 //float Kp = -90, Ki = -70, Kd = -1;
 //float Kp = -180, Ki = 0, Kd = 0;
 //float Kp = -132, Ki = -920, Kd = -4.78; //Z-N method Ku = 220 / tu = 290ms classical
-float Kp = -44, Ki = -303, Kd = -0.8; //Z-N method Ku = 220 / tu = 290ms classical
+float Kp = -44, Ki = -303, Kd = -0.8; //Z-N method Ku = 220 / tu = 290ms no overshoot
 //######################################################---------------------------------------------declarations
 
 float set_point = -3.32;
@@ -68,12 +68,12 @@ void loop() {
   grid = -grid;
   Serial.print(" ------- ");
   Serial.print(grid);
-//  Serial.print(" ------- ");
-//  Serial.print((Kp * error));
-//  Serial.print(" ------- ");
-//  Serial.print((Ki * error_i));
-//  Serial.print(" ------- ");
-//  Serial.print((Kd* error_d));
+  Serial.print(" ------- ");
+  Serial.print((Kp * error));
+  Serial.print(" ------- ");
+  Serial.print((Ki * error_i));
+  Serial.print(" ------- ");
+  Serial.print((Kd* error_d));
   Serial.print(" ------- ");
   Serial.println(bot_inclination);
   //######################################################
