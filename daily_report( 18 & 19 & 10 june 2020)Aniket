@@ -1,0 +1,32 @@
+project 17 daily report(18 & 19 & 20 june 2020)Aniket Nayak
+
+During this span of three days, i worked on the code for the uniform samplying using
+intrrupts debugging it and works on kalman filter and PID tuning for our cycle bot.
+All the details of work and problem faced given below.
+
+1. In the code of uniform samplying we developed the code for it in the earlier week 
+   experiment but the problem we face is we are not used servo libraries or pwm signal
+   in that code, but for the controlling reaction wheel, navigation and back wheel we
+   are using the pwm signal. But we know that the timers are directly associated with
+   pwm signals and arduino generates pwm using it but we don't that the servo library 
+   is using the same timer that we are using, if this is the case, then, the timers are
+   overwriten and generate error. And this is what is happening and our code doesn't 
+   compile.
+
+Problem solved :- This is now solved when we figure out that the servo library just 
+                  enables all the timers of arduino, then we found the alernative
+                  servo library which doesn't do that, i.e servoTimer2.h it uses timer 2
+
+2. I learned about the kalman filter and all its 5 equations but mainly we need 3 
+   equation in our cycle bot i.e
+                   1. state update equation
+                   2. Kalman gain equation
+                   3. covariance update equation.
+   Still, not used pratically, as our metor suggested to stick with the complimentary
+   filter at this time.
+
+3. Tuning the PID, it is still on process as we still not able to tune it properly, we 
+   discusses this problem with our mentor, they suggested to use famous Z_N method
+   for tuning but it is still not tunned, it is balancing for few seconds and then, it
+   will come to ground, we all are working on it and hope to figure it out as soon as
+   possible. 
