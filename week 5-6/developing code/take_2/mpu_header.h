@@ -14,41 +14,63 @@ uint32_t      timer, timer1;
 
 //--------------------------------------------------------------------------
 float Ts = 0.01; //////main frequency  - 200hz
-float alpha_comp = 0.98;  //perfectly tuned filter at alfa = 0.98
 float gyroffset = 1.75;   //offset in anglar velocity
 //-----------------------------------------------------------------
-float dataFusion()
+
+//############################################################
+//function name:      dataFusion()
+//passing arguments:  filter coefficient of complementry filter()default is 0.97
+//return :            filterd data of inclination in degree 
+//discription:        it grabs data from MPU 6050 with SPI protocol and calclates angle from raw data and also performs data fusion on it                 
+//############################################################
+
+float dataFusion(float alpha_comp = 0.97)
 {   
-  readAccel(16384.0);                                                                         //read XYZ Accel data from registers 0x3B to 0x40 
-  readGyro(32.75);                                                                            //read XYZ Gyro data from registers 0x43 to 0x48`
-  accelYangle = (atan2(-AccelX, -AccelZ)) * 180 / PI;                                     //in  degree(method 1)
-  gyroYang =  pitch + GyroY* Ts;
-  pitch       = (alpha_comp* (pitch + GyroY* Ts)) + ((1.0 - alpha_comp) * accelYangle);       // in degree
-  return (pitch);
+  readAccel(16384.0);                                   //read XYZ Accel data from registers 0x3B to 0x40 
+  readGyro(32.75);                                      //read XYZ Gyro data from registers 0x43 to 0x48`
+  accelYangle = (atan2(-AccelX, -AccelZ)) * 180 / PI;   //calculate angle from accel data in  degree(method 1)
+  gyroYang =  pitch + GyroY* Ts;                        //calculate angle from gyro data in degree
+  pitch       = (alpha_comp* (pitch + GyroY* Ts)) + ((1.0 - alpha_comp) * accelYangle);       //fuse data using complementry filter algorythem in degree
+  return (pitch);                                       //return data of data fusion 
 }
+
+//############################################################
+//function name:      readAccel()
+//passing arguments:  divisor to convert raw data in to MKS unit of physical quantity 
+//return :            NONE 
+//discription:        it grabs data from MPU 6050 with SPI protocol and calclates forces on X & Z axis from raw data                
+//############################################################
 
 void readAccel(float accelDivisor)
 {
-  Wire.beginTransmission(MPUaddr0);
-  Wire.write(0x3B);
-  Wire.endTransmission();
-  Wire.requestFrom(MPUaddr0, 6);        //read 6 consecutive registers starting at 0x3B
+  Wire.beginTransmission(MPUaddr0);   //begin transmission with mpu on defined address
+  Wire.write(0x3B);                   //define register to be accesed 
+  Wire.endTransmission();             //over the commanding 
+  Wire.requestFrom(MPUaddr0, 6);      //read 6 consecutive registers starting at 0x3B
   if (Wire.available() >= 6){
+    //combining raw data received from 2 diffrent bytes in one veriable for X axis
     int16_t temp0 = Wire.read() << 8;   //read upper byte of X
     int16_t temp1 = Wire.read();        //read lower byte of X
     AccelX = (float) (temp0 | temp1);
-    AccelX = AccelX / accelDivisor;
-    
+    AccelX = AccelX / accelDivisor;     //converting data to force in factor of gravitetional accilaration 
+
+    //wasting 2 bites as they are for y axis and not for oure use
     Wire.read();           //read upper byte of Y
     Wire.read();           //read lower byte of Y
+
+    //combining raw data received from 2 diffrent bytes in one veriable for Z axis
     temp0 = Wire.read() << 8;           //read upper byte of Z
     temp1 = Wire.read();                //read lower byte of Z
     AccelZ = (float) (temp0 | temp1);
-    AccelZ = AccelZ / accelDivisor;     
+    AccelZ = AccelZ / accelDivisor;     //converting data to force in factor of gravitetional accilaration 
   }
- 
 }
-
+//############################################################
+//function name:      readGyro()
+//passing arguments:  divisor to convert raw data in to MKS unit of physical quantity 
+//return :            NONE 
+//discription:        it grabs data from MPU 6050 with SPI protocol and calclates angular velocity around Y axis in degree/sec                
+//############################################################
 void readGyro(float gyroDivisor){
   
   Wire.beginTransmission(MPUaddr0);
@@ -56,16 +78,20 @@ void readGyro(float gyroDivisor){
   Wire.endTransmission();
   Wire.requestFrom(MPUaddr0, 6);    //read 6 consecutive registers starting at 0x43
   if (Wire.available() >= 6){
-    
+    //combining raw data received from 2 diffrent bytes in one veriable for Y axis
     int16_t temp0 = Wire.read() << 8;   //read upper byte of X
     int16_t temp1 = Wire.read();        //read lower byte of X
     GyroY = (float) (temp0 | temp1);
-    GyroY = GyroY / gyroDivisor ;
-    GyroY = -GyroY+gyroffset;
-//Serial.println(GyroY);
+    GyroY = GyroY / gyroDivisor ;       // converting data ti to degree/sec
+    GyroY = -GyroY+gyroffset;           // removing constant offset from gyro angular velocity because of menufaccturing errors.=
   }  
 }
-
+//############################################################
+//function name:      setAccelSensitivity()
+//passing arguments:  sensitivity to be set in accelerometer 
+//return :            NONE 
+//discription:        it sets accelerometer to defined full scale range  (details are in data sheet of mpu)             
+//############################################################
 void setAccelSensitivity(uint8_t g_factor){
 
   Wire.beginTransmission(MPUaddr0);   //initialize comm with MPU @ 0x68
@@ -73,7 +99,12 @@ void setAccelSensitivity(uint8_t g_factor){
   Wire.write(g_factor);               //setting bit 7 to 1 resets all internal registers to default values
   Wire.endTransmission();             //end comm
 }
-
+//############################################################
+//function name:      setAccelSensitivity()
+//passing arguments:  sensitivity to be set in gyro scop 
+//return :            NONE 
+//discription:        it sets gyroscope to defined full scale range  (details are in data sheet of mpu)             
+//############################################################
 void setGyroSensitivity(uint8_t dps){
 
   Wire.beginTransmission(MPUaddr0);   //initialize comm with MPU @ 0x68
@@ -81,6 +112,13 @@ void setGyroSensitivity(uint8_t dps){
   Wire.write(dps);                    //setting bit 7 to 1 resets all internal registers to default values
   Wire.endTransmission();             //end comm
 }
+
+//############################################################
+//function name:      resetMPU()
+//passing arguments:  NONE  
+//return :            NONE 
+//discription:        it sets sensityvity and other perameters of sensors to default values at the initialization of bot            
+//############################################################
 
 void resetMPU()
 {
@@ -92,18 +130,29 @@ void resetMPU()
   setGyroSensitivity(0x10);   //programmable range of +/-250, +/-500, +/-1000, +/-2000 DPS
   setAccelSensitivity(0x00);  //programmable range of +/-2g, +/-4g, +/-8g, +/-16g
 
-  initiate_pitch();
+  initiate_pitch();           //it initializes the pitch to a proper angle to remove offsets to be integrated 
 
 }
+
+//############################################################
+//function name:      initiate_pitch()
+//passing arguments:  NONE  
+//return :            NONE 
+//discription:        it initializes the pitch to a proper angle to remove offsets to be integrated 
+//                    during this period we need to keep bot pteady an any position and it will take 1000 samples to from accelerometer 
+//                    to calculate precise current angle (initial condetions)            
+//############################################################
 void initiate_pitch()
-{ //Serial.println ("pitch initiation started");
-  for (int i=0; i < 1000; i++)
+{ //taking 1000 samples and finding its average 
+  for (int i=0; i < 1000; i++)        
   {
    readAccel(16384.0);
    pitch = pitch +((atan(-1 * AccelX / sqrt(pow(AccelY, 2) + pow(AccelZ, 2)))) * 180 / PI);
    delay (3);
   }
   pitch = pitch/1000;
+
+  //we stuckes our MCU to till bot gets to +/-1 degree for better initializatio of PID controlet functioning
   while (1)
   {
     dataFusion();

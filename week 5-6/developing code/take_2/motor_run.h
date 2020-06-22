@@ -16,49 +16,67 @@ void motorB_direction(int);
 void motor_signal_A(int, int);
 void motor_signal_B(int, int);
 
+//############################################################
+//function name:      run_backwheel()
+//passing arguments:  NONE
+//return :            NONE
+//discription:        it  runs backwheel motor according to commands received from remote
+//                     
+//############################################################
 void run_backwheel(){
-if (backwheel > 0)
+if (backwheel > 0)                              // move forward
 {
-    analogWrite(Backwheel_en,abs(backwheel));
-    digitalWrite(backwheel_m1, HIGH);
+    analogWrite(Backwheel_en,abs(backwheel));   //writing the respective PWM signal to backwheel motor controle pin
+    digitalWrite(backwheel_m1, HIGH);           // setting the motor diraction
     digitalWrite(backwheel_m2, LOW);
 }
-else if (backwheel < 0)
+else if (backwheel < 0)                         //move backward
 {
     analogWrite(Backwheel_en,abs(backwheel));
     digitalWrite(backwheel_m1, LOW);
     digitalWrite(backwheel_m2, HIGH);
 }
-else
+else                                           // stop the motor if joy stick in between
 {
     analogWrite(Backwheel_en,0);
     digitalWrite(backwheel_m1, LOW);
     digitalWrite(backwheel_m2, LOW);
 }
 }
-
-void run_front_servo()
+//############################################################
+//function name:      run_front_servo()
+//passing arguments:  NONE
+//return :            NONE
+//discription:        it  sets servomotor angle according to commands received from remote                
+//############################################################
+void run_front_servo()                          
 {
-turnservo.attach (turn_servo_pin);
-turnservo.write(turnwheel);
+turnservo.attach (turn_servo_pin);      //define where servo signal pin is connected
+turnservo.write(turnwheel);             //command angle to be set 
 }
 
+//############################################################
+//function name:      run_Rwheel()
+//passing arguments:  torque to be set and calculated from PID
+//return :            NONE
+//discription:        it  sets servomotor angle according to commands received from remote                
+//############################################################
 void run_Rwheel(float torque)
 {
-torque = constrain (torque, -255, 255 );
-if (torque > 0)
+torque = constrain (torque, -255, 255 );      //constraining values up to -255 to 255
+if (torque > 0)                               //turn in positive direction if calculated torque is positive
 {
     analogWrite(Rwheel_en,abs(torque));
     digitalWrite(Rwheel_m1, HIGH);
     digitalWrite(Rwheel_m2, LOW);
 }
-else if (torque < 0)
+else if (torque < 0)                          //turn in negetive direction if calculated torque is positive
 {
     analogWrite(Rwheel_en,abs(torque));
     digitalWrite(Rwheel_m1, LOW);
     digitalWrite(Rwheel_m2, HIGH);
 }
-else
+else                                        ////stopping the motor for no torque required 
 {
     analogWrite(Rwheel_en,0);
     digitalWrite(Rwheel_m1, LOW);
