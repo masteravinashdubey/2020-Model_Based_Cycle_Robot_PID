@@ -8,10 +8,10 @@ float Kp = -50, Ki = 0, Kd = -0.1;
 //function name:      update_gains ()
 //passing arguments:  NONE  
 //return :            NONE 
-//discription:        the function changes the gains as per requirment 
+//description:        the function changes the gains as per requirment 
 //                    we need to pass command in the formate :    <gain_name><sign><value from 1 to 9> 
 //                    gain_name: Kp --> 'p', Ki -->'i', Kd --> 'd'
-//                    sign:      for increament in neet value -->+  ;   for decreament in neet value --> - 
+//                    sign:      for increment in net value -->+  ;   for decrement in neet value --> - 
 //                    value: the value by which we want to inc/dec our gain (between 1-9 only integer)
 //                    (note: for derivative gain the value will be devided by 10)       
 //############################################################
@@ -22,7 +22,7 @@ if (Serial.available())
   int sign = Serial.read();
   int value = Serial.read();
     if ( gain == 'p')                         //for Kp
-    {   if (sign == '+') Kp = Kp - value +48; //convertin ascii value to equlent integer value 
+    {   if (sign == '+') Kp = Kp - value +48; //convertin ASCII value to equivalent integer value 
         else Kp = Kp + value - 48;  }
         
     else if (gain == 'i')                      //for Ki
@@ -45,9 +45,9 @@ if (Serial.available())
 
 //############################################################
 //function name:      print_data
-//passing arguments:  variabless to be printed   
+//passing arguments:  variables to be printed   
 //return :            NONE 
-//discription:        we can pass up to max 5 arguments 
+//description:        we can pass up to max 5 arguments 
 //                    the argument which is not passed will be initialize as zero            
 //############################################################
 void print_data(float a = 0, float b = 0, float c = 0, float d = 0, float e = 0)

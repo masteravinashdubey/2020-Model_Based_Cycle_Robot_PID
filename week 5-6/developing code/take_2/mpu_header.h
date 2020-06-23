@@ -1,7 +1,8 @@
 #include<Wire.h>
 #define MPUaddr0 0x68    //addr used if pin AD0 is set to 0 (left unconnected)
 #define MPUaddr1 0x69    //addr used if pin AD0 is set to 1 (wired to VDD)
-
+#define blue 31
+#define green 39
 
 float AccelX, AccelY, AccelZ = 0;              ////scaled data from MPU accl(force)
 float accelYangle = 0;////angle calculated from accl(degree)
@@ -14,14 +15,14 @@ uint32_t      timer, timer1;
 
 //--------------------------------------------------------------------------
 float Ts = 0.01; //////main frequency  - 200hz
-float gyroffset = 1.75;   //offset in anglar velocity
+float gyroffset = 1.75;   //offset in angular velocity
 //-----------------------------------------------------------------
 
 //############################################################
 //function name:      dataFusion()
-//passing arguments:  filter coefficient of complementry filter()default is 0.97
+//passing arguments:  filter coefficient of complementary filter()default is 0.97
 //return :            filterd data of inclination in degree 
-//discription:        it grabs data from MPU 6050 with SPI protocol and calclates angle from raw data and also performs data fusion on it                 
+//discription:        it grabs data from MPU 6050 with SPI protocol and calculates angle from raw data and also performs data fusion on it                 
 //############################################################
 
 float dataFusion(float alpha_comp = 0.97)
@@ -48,17 +49,17 @@ void readAccel(float accelDivisor)
   Wire.endTransmission();             //over the commanding 
   Wire.requestFrom(MPUaddr0, 6);      //read 6 consecutive registers starting at 0x3B
   if (Wire.available() >= 6){
-    //combining raw data received from 2 diffrent bytes in one veriable for X axis
+    //combining raw data received from 2 diffrent bytes in one variable for X axis
     int16_t temp0 = Wire.read() << 8;   //read upper byte of X
     int16_t temp1 = Wire.read();        //read lower byte of X
     AccelX = (float) (temp0 | temp1);
-    AccelX = AccelX / accelDivisor;     //converting data to force in factor of gravitetional accilaration 
+    AccelX = AccelX / accelDivisor;     //converting data to force in factor of gravitational acceleration 
 
     //wasting 2 bites as they are for y axis and not for oure use
     Wire.read();           //read upper byte of Y
     Wire.read();           //read lower byte of Y
 
-    //combining raw data received from 2 diffrent bytes in one veriable for Z axis
+    //combining raw data received from 2 different bytes in one veriable for Z axis
     temp0 = Wire.read() << 8;           //read upper byte of Z
     temp1 = Wire.read();                //read lower byte of Z
     AccelZ = (float) (temp0 | temp1);
@@ -83,14 +84,14 @@ void readGyro(float gyroDivisor){
     int16_t temp1 = Wire.read();        //read lower byte of X
     GyroY = (float) (temp0 | temp1);
     GyroY = GyroY / gyroDivisor ;       // converting data ti to degree/sec
-    GyroY = -GyroY+gyroffset;           // removing constant offset from gyro angular velocity because of menufaccturing errors.=
+    GyroY = -GyroY+gyroffset;           // removing constant offset from gyro angular velocity because of manufacturing errors.=
   }  
 }
 //############################################################
 //function name:      setAccelSensitivity()
 //passing arguments:  sensitivity to be set in accelerometer 
 //return :            NONE 
-//discription:        it sets accelerometer to defined full scale range  (details are in data sheet of mpu)             
+//description:        it sets accelerometer to defined full scale range  (details are in data sheet of mpu)             
 //############################################################
 void setAccelSensitivity(uint8_t g_factor){
 
@@ -103,7 +104,7 @@ void setAccelSensitivity(uint8_t g_factor){
 //function name:      setAccelSensitivity()
 //passing arguments:  sensitivity to be set in gyro scop 
 //return :            NONE 
-//discription:        it sets gyroscope to defined full scale range  (details are in data sheet of mpu)             
+//description:        it sets gyroscope to defined full scale range  (details are in data sheet of mpu)             
 //############################################################
 void setGyroSensitivity(uint8_t dps){
 
@@ -117,7 +118,7 @@ void setGyroSensitivity(uint8_t dps){
 //function name:      resetMPU()
 //passing arguments:  NONE  
 //return :            NONE 
-//discription:        it sets sensityvity and other perameters of sensors to default values at the initialization of bot            
+//description:        it sets sensitivity and other perameters of sensors to default values at the initialaization of bot            
 //############################################################
 
 void resetMPU()
@@ -151,7 +152,7 @@ void initiate_pitch()
    delay (3);
   }
   pitch = pitch/1000;
-
+  digitalWrite(green,LOW);
   //we stuckes our MCU to till bot gets to +/-1 degree for better initializatio of PID controlet functioning
   while (1)
   {
@@ -159,6 +160,7 @@ void initiate_pitch()
     if (pitch < 1 && pitch >-1)
     break;
   }
+  digitalWrite(blue,HIGH);
 }
 
 

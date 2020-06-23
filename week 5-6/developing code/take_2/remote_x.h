@@ -12,7 +12,7 @@ void Adjust_rmt_Data();
 //function name:      read_remote())
 //passing arguments:  NONE  
 //return :            NONE 
-//discription:        when data package arrives from remote on serial port 1 it extracts joistic data from it            
+//description:        when data package arrives from remote on serial port 1 it extracts joystick data from it            
 //############################################################
 
 void read_remote()
@@ -25,10 +25,10 @@ void read_remote()
         {   
             Serial1.read();
         }
-          jx = (Serial1.read()<<8) | Serial1.read(); //combining 10 bit of data for joy stic x in one veriable 
-          jy = (Serial1.read()<<8) | Serial1.read(); //combining 10 bit of data for joy stic y in one veriable 
+          jx = (Serial1.read()<<8) | Serial1.read(); //combining 10 bit of data for joy stick x in one veriable 
+          jy = (Serial1.read()<<8) | Serial1.read(); //combining 10 bit of data for joy stick y in one veriable 
           Serial1.read();
-          Adjust_rmt_Data();                         //decision making of nevigation from remote data
+          Adjust_rmt_Data();                         //decision making of navigation from remote data
     }
 }
 }
@@ -37,7 +37,7 @@ void read_remote()
 //function name:      Adjust_rmt_Data()
 //passing arguments:  NONE  
 //return :            NONE 
-//discription:        it makes decision for speed and diraction of rare whee motor
+//discription:        it makes decision for speed and direction of rare whee motor
 //                    it makes decision for speed and angle of turning servo motor            
 //############################################################
 void Adjust_rmt_Data()
