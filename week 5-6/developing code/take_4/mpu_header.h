@@ -152,12 +152,13 @@ void initiate_pitch()
   digitalWrite(green,LOW);
   //we stuckes our MCU to till bot gets to +/-1 degree for better initializatio of PID controlet functioning
   while (1)
-  {
+  { readAccel(16384.0);      //read XYZ Accel data from registers 0x3B to 0x40 
+    readGyro(32.75); 
     dataFusion();
     if (pitch < 1 && pitch >-1)
     break;
   }
-  //digitalWrite(blue,HIGH);
+  digitalWrite(blue,HIGH);
 }
 
 

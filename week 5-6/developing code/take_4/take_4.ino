@@ -10,46 +10,38 @@ float Rmotor_torque ;
 float bot_inclination;
 void PID_controle();
 void integrate_error();
-int i = 1;
 //######################################################---------------------------------------------SETUP
 
 void setup() {
-Serial1.begin(115200);
-//Serial.begin(250000);
-Wire.begin();
-Wire.setClock(400000UL);
-pinMode(green,OUTPUT);      
-//pinMode(blue,OUTPUT);  
-Adjust_rmt_Data();
-digitalWrite(green,HIGH);
-resetMPU();
-Set_up_timers();
+  Serial1.begin(115200);
+  Serial.begin(250000);
+  Wire.begin();
+  Wire.setClock(400000UL);
+  pinMode(green,OUTPUT);      
+  pinMode(blue,OUTPUT);  
+  Adjust_rmt_Data();
+  digitalWrite(green,HIGH);
+  resetMPU();
+  Set_up_timers();
 }
-
 //######################################################-------------------------------------------LOOP
 void loop() {
-read_remote();
-run_backwheel();
-run_front_servo();
+  read_remote();
+  run_backwheel();
+  run_front_servo();
 }
 
-ISR(TIMER1_COMPA_vect)     //writing ISR with vector for timer 1A  // run pid calculation after 20ms it willl take 200 micro sec time         
-{//sei();
-  PID_controle();
-//  Serial.println("3");
-  }
+//######################################################----------------------here is the ISRs of interrupt sequences are defined 
+ISR(TIMER1_COMPA_vect)     //writing ISR with vector for timer 1A  // run pid calculation after 10ms it willl take 200 micro sec time         
+{ PID_controle();}
+ 
+ISR(TIMER1_COMPB_vect)     //writing ISR with vector for timer 1B  //run data fusion after 7 ms it will take 400 micro sec time            
+{ bot_inclination = dataFusion(0.98);  }    //returns filterd inclination of bot                                      
   
-ISR(TIMER1_COMPB_vect)     //writing ISR with vector for timer 1B  //run data fusion after 19 ms it will take 400 micro sec time            
-{ //sei();
- dataFusion();
- float bot_inclination = dataFusion(0.98); //it communicates with mpu derives data for gyro and accel and fuses them together
-                                            //returns filterd inclination of bot
-                                            //argument to be pass = filter coefficient of complementary filter default is 0.97
-  }  
-ISR(TIMER1_COMPC_vect)     //writing ISR with vector for timer 1C  // grabing data at 18 ms it takes around 700 micro sec          
-{ sei();
+ISR(TIMER1_COMPC_vect)     //writing ISR with vector for timer 1C  // grabing data at 4ms it takes around 700 micro sec          
+{ sei();                   //after entring in an ISR globle interrupts gets disabled 
   readAccel(16384.0);      //read XYZ Accel data from registers 0x3B to 0x40 
-  readGyro(32.75); 
+  readGyro(32.75);         //reading gyro data 
   }
 
 //######################################################---------------------------------------------PID controler here
@@ -62,7 +54,6 @@ void PID_controle()
 
   Rmotor_torque = (Kp * error) + (Ki * error_i) + (Kd * error_d);     // PID algorithm 
   run_Rwheel(Rmotor_torque); 
-
 }
 //############################################################
 //function name:      integrate_error()
@@ -79,25 +70,31 @@ void integrate_error()
   else if (Ki * error_i > 255)                 error_i = float(int(255 / Ki));            // if "Ki*error_i" value is exeding 255 just turn of integrator
   
   else if ( Ki * error_i < -255)               error_i = float(int(-255 / Ki));          //if "Ki*error_i" value becoming lower than -255 just turn of integrator 
-
 }
-
+//############################################################
+//function name:      Set_up_timers()
+//passing arguments:  NONE  
+//return :            NONE 
+//description:        in configurs timers and also mode of oprating timer and generating interrupt 
+//                    here we are using timer 1 and its 3 compare match registers and when match with OCR1A occurs its resets timer1 and generates interrupt
+//                    when timer starts OCR1C register gentrates interrupt at 4ms; OCR1B at 7ms and OCR1A at 10ms and thus uniform sampling gets assureds              
+//############################################################
 void Set_up_timers()
 {
-cli();               //to reinitialize all interupts 
-TCCR1A = B00000000;  //clear whole register  
-TCCR1B = B00001101;  //setting up prescaler to 1024 and ctc mode too
-
-OCR1AH = 0x00;       //high byte of compare match register
-OCR1AL = 0x9D;       //low byte of compare match register//interupt after 10ms
-
-OCR1BH = 0x00;       //high byte of compare match register
-OCR1BL = 0x6F;       //low byte of compare match register//interrupt after 7ms
-
-OCR1CH = 0x00;       //high byte of compare match register
-OCR1CL = 0x3F;       //low byte of compare match register//intrrupt after 4ms
-
-TIMSK1 = B00001110;  //enabling timer interrupt on compare match register A 
-sei();   
+    cli();               //to reinitialize all interupts 
+    TCCR1A = B00000000;  //clear whole register  
+    TCCR1B = B00001101;  //setting up prescaler to 1024 and ctc mode too
+    
+    OCR1AH = 0x00;       //high byte of compare match register
+    OCR1AL = 0x9D;       //low byte of compare match register//interupt after 10ms = 0x9D
+    
+    OCR1BH = 0x00;       //high byte of compare match register
+    OCR1BL = 0x6F;       //low byte of compare match register//interrupt after 7ms = 0X6F
+    
+    OCR1CH = 0x00;       //high byte of compare match register
+    OCR1CL = 0x3F;       //low byte of compare match register//intrrupt after 4ms  = 0X3F
+    
+    TIMSK1 = B00001110;  //enabling timer interrupt on compare match register A 
+    sei();   
 }
 
