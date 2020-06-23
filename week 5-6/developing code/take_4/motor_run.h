@@ -17,6 +17,14 @@ void motorB_direction(int);
 void motor_signal_A(int, int);
 void motor_signal_B(int, int);
 
+
+//############################################################
+//function name:      run_backwheel()
+//passing arguments:  NONE
+//return :            NONE
+//discription:        it  runs backwheel motor according to commands received from remote
+//                     
+//############################################################
 void run_backwheel(){
 if (backwheel > 0)
 {
@@ -37,13 +45,24 @@ else
     digitalWrite(backwheel_m2, LOW);
 }
 }
-
+//############################################################
+//function name:      run_front_servo()
+//passing arguments:  NONE
+//return :            NONE
+//discription:        it  sets servomotor angle according to commands received from remote                
+//############################################################
 void run_front_servo()
 {
 turnservo.attach (turn_servo_pin);
 turnservo.write(map(turnwheel, 0,180,750, 2250));
 }
 
+//############################################################
+//function name:      run_Rwheel()
+//passing arguments:  torque to be set and calculated from PID
+//return :            NONE
+//discription:        it  sets servomotor angle according to commands received from remote                
+//############################################################
 void run_Rwheel(float torque)
 {
 torque = constrain (torque, -255, 255 );
