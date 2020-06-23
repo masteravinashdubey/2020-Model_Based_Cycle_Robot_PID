@@ -1,0 +1,7 @@
+#internship week 6 weekly report 
+
+During this week the main task was to tune PID controller and balance the cycle in starting days i found the mistakes in complementary filters and so i have corrected it and also  fixed some hardware issues.
+
+In PID controller I have tried s many methods to tune it like ziglar nicholas method, P-D-I sequence tuning, P-I-D  sequence tuning random gain guesses from practical observation and i have also tried to use auto tuning feature of mat lab using discretised model of cycle bot but none of them leads me to perfect  tuning gains of PID controller. So i have revisited some fundamental concepts of PID controller to find any optimization and i have also implemented anti winding algorithm for integrator.
+
+Other then it i have also tried to make code using interrupt for uniform sampling and corrected so many things in that but its still under construction "take_3 and take_4"
