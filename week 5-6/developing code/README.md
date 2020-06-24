@@ -4,7 +4,7 @@ all other files are under construction
 in order to run files on your machine all zip librery files in librery folder must be installed on your machine
 to do so follow the steps
 
-1) down load the librery folre 
+1)download the librery folder 
 
 2)go to arduino skectch
 
