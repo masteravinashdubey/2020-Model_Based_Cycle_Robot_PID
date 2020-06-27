@@ -14,7 +14,7 @@ void integrate_error();
 
 void setup() {
   Serial1.begin(115200);
-  Serial.begin(115200);
+  //Serial.begin(250000);
   Wire.begin();
   Wire.setClock(400000UL);
   pinMode(green,OUTPUT);      
@@ -30,14 +30,11 @@ void loop() {
   read_remote();
   run_backwheel();
   run_front_servo();
- //print_data(bot_inclination, set_point, Rmotor_torque/100);
 }
 
 //######################################################----------------------here is the ISRs of interrupt sequences are defined 
 ISR(TIMER1_COMPA_vect)     //writing ISR with vector for timer 1A  // run pid calculation after 10ms it willl take 200 micro sec time         
-{ 
-  PID_controle();
-  }
+{ PID_controle();}
  
 ISR(TIMER1_COMPB_vect)     //writing ISR with vector for timer 1B  //run data fusion after 7 ms it will take 400 micro sec time            
 { bot_inclination = dataFusion(0.98);  }    //returns filterd inclination of bot                                      
@@ -101,3 +98,4 @@ void Set_up_timers()
     TIMSK1 = B00001110;  //enabling timer interrupt on compare match register A 
     sei();   
 }
+

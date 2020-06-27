@@ -2,11 +2,11 @@
 #include <Servo.h>
 Servo turnservo;
 
-#define Rwheel_en 3
+#define Rwheel_en 4
 #define Rwheel_m1 27
 #define Rwheel_m2 29
 
-#define Backwheel_en 2
+#define Backwheel_en 3
 #define backwheel_m1 25 
 #define backwheel_m2 23
 

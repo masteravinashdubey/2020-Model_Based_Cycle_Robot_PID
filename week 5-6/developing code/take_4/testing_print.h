@@ -1,8 +1,6 @@
-float Kp = -50, Ki = 0, Kd = -0.1;
-//float Kp = -180, Ki = -100, Kd = -0.5;
-//float Kp = -90, Ki = -70, Kd = -1;
-//float Kp = -132, Ki = -920, Kd = -4.78; //Z-N method Ku = 220 / tu = 290ms classical
-//float Kp = -44, Ki = -303, Kd = -0.8; //Z-N method Ku = 220 / tu = 290ms no overshoot
+//float Kp = -150, Ki = -80, Kd = -2.1;
+float Kp = -160, Ki = 0, Kd = -2;//-130;-150;-170
+
 
 //############################################################
 //function name:      update_gains ()
@@ -63,4 +61,3 @@ void print_data(float a = 0, float b = 0, float c = 0, float d = 0, float e = 0)
   Serial.print(" ------- ");
   Serial.println(a);
 }
-
