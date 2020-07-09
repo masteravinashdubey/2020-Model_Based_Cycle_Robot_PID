@@ -30,7 +30,7 @@ void loop() {
   read_remote();
   run_backwheel();
   run_front_servo();
- //print_data(bot_inclination, set_point, Rmotor_torque/100);
+print_data(error);
 }
 
 //######################################################----------------------here is the ISRs of interrupt sequences are defined 
@@ -90,13 +90,13 @@ void Set_up_timers()
     TCCR1B = B00001101;  //setting up prescaler to 1024 and ctc mode too
     
     OCR1AH = 0x00;       //high byte of compare match register
-    OCR1AL = 0x9D;       //low byte of compare match register//interupt after 10ms = 0x9D
+    OCR1AL = 0x3F;       //low byte of compare match register//interupt after 10ms = 0x9D
     
     OCR1BH = 0x00;       //high byte of compare match register
-    OCR1BL = 0x6F;       //low byte of compare match register//interrupt after 7ms = 0X6F
+    OCR1BL = 0x2F;//0x6F;       //low byte of compare match register//interrupt after 7ms = 0X6F
     
     OCR1CH = 0x00;       //high byte of compare match register
-    OCR1CL = 0x3F;       //low byte of compare match register//intrrupt after 4ms  = 0X3F
+    OCR1CL = 0x20;       //low byte of compare match register//intrrupt after 4ms  = 0X3F
     
     TIMSK1 = B00001110;  //enabling timer interrupt on compare match register A 
     sei();   

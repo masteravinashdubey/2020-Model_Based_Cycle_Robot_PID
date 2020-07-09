@@ -13,7 +13,7 @@ void readAccel(float);
 void initiate_pitch();
 
 //--------------------------------------------------------------------------
-float Ts = 0.02; //////main frequency  - 200hz
+float Ts = 0.004; //////main frequency  - 200hz
 float gyroffset = 1.75;   //offset in angular velocity
 //-----------------------------------------------------------------
 
@@ -160,6 +160,3 @@ void initiate_pitch()
   }
   digitalWrite(blue,HIGH);
 }
-
-
-

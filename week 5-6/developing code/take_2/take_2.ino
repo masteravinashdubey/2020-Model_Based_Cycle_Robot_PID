@@ -50,7 +50,7 @@ void loop() {
                                                                       // pass the argument of PID calculation 
 
   //######################################################
-  //print_data(pitch, error,5);                //the function is to monitor parameters just pass the perameter as argument (in testing_print.h)(max 5 argument is allowed)
+  print_data(0,bot_inclination);                //the function is to monitor parameters just pass the perameter as argument (in testing_print.h)(max 5 argument is allowed)
   //######################################################
   
   //the while loop burns excessive time to set uniform sampling for defined in Ts varieble
