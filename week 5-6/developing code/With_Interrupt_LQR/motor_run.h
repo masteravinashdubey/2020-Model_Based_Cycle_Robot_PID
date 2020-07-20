@@ -1,6 +1,7 @@
+#include <ServoTimer2.h>
 #include<arduino.h>
-#include <Servo.h>
-Servo turnservo;
+
+ServoTimer2 turnservo;
 
 #define Rwheel_en 4
 #define Rwheel_m1 27
@@ -16,6 +17,8 @@ void motorB_direction(int);
 void motor_signal_A(int, int);
 void motor_signal_B(int, int);
 
+#define M_enc_1 3
+#define M_enc_2 5
 //############################################################
 //function name:      run_backwheel()
 //passing arguments:  NONE
@@ -24,19 +27,19 @@ void motor_signal_B(int, int);
 //                     
 //############################################################
 void run_backwheel(){
-if (backwheel > 0)                              // move forward
+if (backwheel > 0)
 {
-    analogWrite(Backwheel_en,abs(backwheel));   //writing the respective PWM signal to backwheel motor controle pin
-    digitalWrite(backwheel_m1, HIGH);           // setting the motor diraction
+    analogWrite(Backwheel_en,abs(backwheel));
+    digitalWrite(backwheel_m1, HIGH);
     digitalWrite(backwheel_m2, LOW);
 }
-else if (backwheel < 0)                         //move backward
+else if (backwheel < 0)
 {
     analogWrite(Backwheel_en,abs(backwheel));
     digitalWrite(backwheel_m1, LOW);
     digitalWrite(backwheel_m2, HIGH);
 }
-else                                           // stop the motor if joy stick in between
+else
 {
     analogWrite(Backwheel_en,0);
     digitalWrite(backwheel_m1, LOW);
@@ -49,10 +52,10 @@ else                                           // stop the motor if joy stick in
 //return :            NONE
 //discription:        it  sets servomotor angle according to commands received from remote                
 //############################################################
-void run_front_servo()                          
+void run_front_servo()
 {
-turnservo.attach (turn_servo_pin);      //define where servo signal pin is connected
-turnservo.write(turnwheel);             //command angle to be set 
+turnservo.attach (turn_servo_pin);
+turnservo.write(map(turnwheel, 0,180,750, 2250));
 }
 
 //############################################################
@@ -63,20 +66,20 @@ turnservo.write(turnwheel);             //command angle to be set
 //############################################################
 void run_Rwheel(float torque)
 {
-torque = constrain (torque, -255, 255 );      //constraining values up to -255 to 255
-if (torque > 0)                               //turn in positive direction if calculated torque is positive
+torque = constrain (torque, -255, 255 );
+if (torque > 0)
 {
     analogWrite(Rwheel_en,abs(torque));
     digitalWrite(Rwheel_m1, HIGH);
     digitalWrite(Rwheel_m2, LOW);
 }
-else if (torque < 0)                          //turn in negetive direction if calculated torque is positive
+else if (torque < 0)
 {
     analogWrite(Rwheel_en,abs(torque));
     digitalWrite(Rwheel_m1, LOW);
     digitalWrite(Rwheel_m2, HIGH);
 }
-else                                        ////stopping the motor for no torque required 
+else
 {
     analogWrite(Rwheel_en,0);
     digitalWrite(Rwheel_m1, LOW);
